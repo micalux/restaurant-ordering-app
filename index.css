@@ -225,8 +225,7 @@ input {
 
 /* Greetings section */
 
-.ty-message {
-    display: none;
+.confirmation-message {
     margin: 45px auto 0;
     text-align: center;
     width: 508px;

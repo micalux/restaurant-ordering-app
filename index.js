@@ -6,8 +6,7 @@ let orderList = []
 let totPrice = ''
 
 const orderSection = document.getElementById('order-section')
-const orderBtn = document.getElementById('order-btn')
-const payBtn = document.getElementById('pay-btn')
+const paymentForm = document.getElementById('payment-form')
 
 const renderMenu = () => {
     const menuEl = document.getElementById('menu')
@@ -34,9 +33,11 @@ const renderMenu = () => {
 
 renderMenu()
 
+
 document.addEventListener('click', function(e) {
     if (e.target.dataset.plus) {
-        handleAddProduct(parseInt(e.target.dataset.plus))     
+        hideConfirmation()
+        handleAddProduct(parseInt(e.target.dataset.plus))    
     } else if (e.target.dataset.remove) {
         handleRemoveProduct((e.target.dataset.remove))   
     } else if (e.target.id === 'order-btn') {
@@ -44,15 +45,13 @@ document.addEventListener('click', function(e) {
     } else if (e.target.id === 'close-btn') {
         closeModal()
     } else if (e.target.id === 'pay-btn') {
-        console.log('yes')
+        closeModal()
+        showConfirmation()
+        hideOrder()
+        resetOrder()
     }
 })
 
-document.addEventListener("keydown", function(e) {
-    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-        closeModal();
-    }
-  })
 
 function handleAddProduct(productId) {
     menuArray.forEach((product) => {
@@ -67,13 +66,13 @@ function handleAddProduct(productId) {
     renderOrder()
 }
 
+
 function handleRemoveProduct(productId){
     for (let i = 0; i < orderList.length; i++){
         if (orderList[i].uuid === productId) {
             orderList.splice(i, 1)
         }
     }  
-    console.log(orderList)
 renderOrder()
 }
 
@@ -85,10 +84,20 @@ function getTotalOrderPrice(){
 const totalPrice = document.getElementById('total-price').innerText = '$' + totPrice
 }
 
+const showOrder = () => orderSection.classList.remove("hidden")
+
+const hideOrder = () => orderSection.classList.add("hidden")
+
+const resetOrder = () => {
+    orderList = []
+    paymentForm.reset()
+}
+
+
 const renderOrder = () => {
     if (orderList.length > 0){
         getTotalOrderPrice()
-        showsOrderRecap()
+        showOrder()
         
         const orderRecapEl = document.getElementById('order-recap')    
         let renderOrder = ''
@@ -104,20 +113,16 @@ const renderOrder = () => {
         })
         return orderRecapEl.innerHTML = renderOrder
     } else {
-        orderSection.style.display = 'none'
+        hideOrder()
     }
 }
 
-const showsOrderRecap = () => { 
-    orderSection.style.display = 'block'
-}
 
+// Payment & Confirmation Section
 
-
-// Modal Section
-
-const modal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
+const modal = document.querySelector(".modal")
+const overlay = document.querySelector(".overlay")
+const confirmationMessage = document.querySelector(".confirmation-message")
 
 const openModal = () => {
     modal.classList.remove("hidden")
@@ -128,3 +133,13 @@ const closeModal = () => {
     modal.classList.add("hidden")
     overlay.classList.add("hidden")
 }
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+        closeModal();
+    }
+  })
+
+const showConfirmation = () => confirmationMessage.classList.remove("hidden")
+
+const hideConfirmation = () => confirmationMessage.classList.add("hidden")
