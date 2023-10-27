@@ -16,7 +16,7 @@
             </div>
         </header>
         <main>
-            <div id="menu"></div>
+            <div class="menu" id="menu"></div>
                 <!-- JS Menu goes here -->
             </div>
 
@@ -44,7 +44,9 @@
 
 <!--------------------- Modal --------------------->
             <section class="modal hidden">
-                <button class="close-btn" id="close-btn">X</button>
+                <div class="close-btn" >
+                    <button id="close-btn">X</button>
+                </div>
                 <h2>Enter card details</h2>
                 <form id="payment-form">
                     <input type="text" id="fname" name="fname" placeholder="Enter your name" required>
@@ -57,9 +59,9 @@
 <!--------------------- END Modal --------------------->
 
 <!--------------------- Thanks message Section --------------------->  
-<div class="confirmation-message hidden">
-    <p>Thanks, James! Your order is on its way!</p>
-</div>
+            <div class="confirmation-message hidden">
+                <p>Thanks, James! Your order is on its way!</p>
+            </div>
 <!--------------------- END Thanks message Section --------------------->  
         </main>
         <script src="index.js" type="module"></script>

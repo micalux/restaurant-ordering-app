@@ -1,10 +1,9 @@
 body {
     margin: 0 auto;
-    width: 600px;
+    max-width: 600px;
     font-family: 'Smythe', sans-serif;
     color: #353535;
 }
-
 
 header {
     position: relative;
@@ -26,9 +25,12 @@ header {
     margin: 0;
 }
 
+/* Order Section */
+
 main {
-    width: 508px;
-    position: relative
+    width: 90%;
+    position: relative;
+    margin: 0 auto;
 }
 
 .product {
@@ -36,12 +38,11 @@ main {
     align-items: flex-start;
     justify-content: space-between;
     margin: 40px auto 0;
-    height: 140px;
     border-bottom: #8B8B8B solid 1px;
 }
 
 .product-details {
-    width: 230px;
+    margin-bottom: 40px;
 }
 
 .product-img {
@@ -145,7 +146,7 @@ h3 {
     margin: 0 auto;
     display: block;
     border: none;
-    width: 508px;
+    width: 100%;
     margin-top: 30px;
     font-family: 'inter', sans-serif;
     font-weight: 600;
@@ -159,10 +160,11 @@ h3 {
 
 .modal {
     font-family: 'inter', sans-serif;
-    margin:auto;
+    margin: auto;
     padding-bottom: 10px;
-    width: 508px;
-    height: 500px;
+    width: 60%;
+    max-width: 500px;
+    max-height: 500px;
     background-color: white;
     position: fixed;
     bottom: 0;
@@ -194,7 +196,7 @@ h3 {
 }
 
 input {
-    width: 450px;
+    width: 85%;
     display: block;
     margin: 20px auto;
     font-size: 20px;
@@ -213,14 +215,15 @@ input {
 }
 
 .close-btn {
+    margin: 10px 10px 0 ;
+    text-align: right;
+}
+
+.close-btn button {
     font-size: 20px;
     font-weight: bold;
     border: none;
     background: none;
-    text-align: right;
-    padding-left: 480px;
-    margin-top: 10px;
-    margin-bottom: 0;
 }
 
 /* Greetings section */
@@ -228,7 +231,6 @@ input {
 .confirmation-message {
     margin: 45px auto 0;
     text-align: center;
-    width: 508px;
     color: #065F46;
     background-color: #ECFDF5;
     font-size: 32;

@@ -36,19 +36,22 @@ renderMenu()
 
 document.addEventListener('click', function(e) {
     if (e.target.dataset.plus) {
-        hideConfirmation()
         handleAddProduct(parseInt(e.target.dataset.plus))    
     } else if (e.target.dataset.remove) {
         handleRemoveProduct((e.target.dataset.remove))   
     } else if (e.target.id === 'order-btn') {
         openModal()
     } else if (e.target.id === 'close-btn') {
+        console.log('yes')
         closeModal()
     } else if (e.target.id === 'pay-btn') {
         closeModal()
         showConfirmation()
         hideOrder()
         resetOrder()
+        setTimeout(() => {
+            hideConfirmation()
+        }, 3000);
     }
 })
 
