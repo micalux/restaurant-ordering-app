@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;600&family=Smythe&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <header>
+            <img class="header-img" src="images/ferks-guare-KEZdWfYD-ow-unsplash 1.png">
+            <div class="head-title">
+                <h1>Jimmy’s Diner</h1>
+                <h3 class="strapline">The best burgers and pizzas in town.</h3>
+            </div>
+        </header>
+        <main>
+            <div id="menu"></div>
+                <!-- JS Menu goes here -->
+            </div>
+
+<!--------------------- Thanks message Section --------------------->  
+            <div class="ty-message">
+                <p>Thanks, James! Your order is on its way!</p>
+            </div>
+<!--------------------- END Thanks message Section --------------------->  
+
+<!--------------------- Complete order Section --------------------->
+            <div class="order-section hidden" id="order-section">
+                <div class="order-recap">
+                    <h2 class="recap-title">Your order</h2>
+                    <div id="order-recap">
+                        <!--<div class="recap-product">
+                            <h2>Pizza</h2>
+                            <p>remove</p>
+                            <h3 class="recap-price">$14</h3>
+                        </div> -->
+                    </div>
+                </div>
+
+                <div class="total-price">
+                    <h2>Total price:</h2>
+                    <h3 id="total-price">$</h3>
+                </div>
+                <button class="order-btn" id="order-btn">Complete order</button> 
+            </div>
+        
+<!--------------------- END Complete order Section --------------------->
+
+<!--------------------- Modal --------------------->
+            <section class="modal hidden">
+                <button class="close-btn" id="close-btn">X</button>
+                <h2>Enter card details</h2>
+                <form>
+                    <input type="text" id="fname" name="fname" placeholder="Enter your name" required>
+                    <input type="number" id="card" name="card" placeholder="Enter card number" required>
+                    <input type="number" id="cvv" name="cvv" placeholder="Enter CVV" required>
+                    <input type="submit" value="Pay" class="pay-btn" id="pay-btn">
+                </form>
+            </section>
+            <div class="overlay hidden"></div>
+<!--------------------- END Modal --------------------->
+        </main>
+        <script src="index.js" type="module"></script>
+    </body>
+</html>
+
