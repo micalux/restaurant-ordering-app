@@ -44,7 +44,7 @@ document.addEventListener('click', function(e) {
     } else if (e.target.id === 'close-btn') {
         closeModal()
     } else if (e.target.id === 'pay-btn') {
-        submitPayment()
+        console.log('yes')
     }
 })
 

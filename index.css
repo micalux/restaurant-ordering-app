@@ -3,7 +3,6 @@ body {
     width: 600px;
     font-family: 'Smythe', sans-serif;
     color: #353535;
-    /* position: relative */
 }
 
 
@@ -52,8 +51,8 @@ main {
 .product-img p {
     font-size: 75px;
     margin: 0;
- 
 }
+
 i {
     color: #474747;
     font-size: 20px;
@@ -65,8 +64,6 @@ i {
 }
 
 .plus-icon {
-    /* border: 1.5px solid #DEDEDE;
-    border-radius: 50%; */
     display: flex;
     align-items: center;
     margin-left: 100px;
@@ -95,6 +92,7 @@ h3 {
 
 
 
+/* Recap Order Section */
 
 .recap-title {
     text-align: center;
@@ -157,13 +155,15 @@ h3 {
     padding: 20px;
 }
 
+/* Payment Modal Section */
+
 .modal {
     font-family: 'inter', sans-serif;
     margin:auto;
     padding-bottom: 10px;
     width: 508px;
     height: 500px;
-    background-color: #f4eeaf;
+    background-color: white;
     position: fixed;
     bottom: 0;
     top: 0; 
@@ -221,9 +221,9 @@ input {
     padding-left: 480px;
     margin-top: 10px;
     margin-bottom: 0;
-    cursor: pointer;
 }
 
+/* Greetings section */
 
 .ty-message {
     display: none;
@@ -236,15 +236,13 @@ input {
     padding: 16px;
 }
 
-/* utility class */
+/* Utility Classes */
+
 .hidden {
     display: none;
 }
 
-.plus-icon, p, button, .pay-btn{
+.plus-icon, p, button, .pay-btn, .close-btn{
     cursor: pointer;
 }
 
-.order-section {
-    display: none;
-}
