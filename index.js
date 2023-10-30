@@ -45,13 +45,17 @@ document.addEventListener('click', function(e) {
         console.log('yes')
         closeModal()
     } else if (e.target.id === 'pay-btn') {
-        closeModal()
-        showConfirmation()
-        hideOrder()
-        resetOrder()
-        setTimeout(() => {
-            hideConfirmation()
-        }, 3000);
+        const form = document.getElementById('payment-form')
+        if (form.checkValidity()) {
+            e.preventDefault()
+            closeModal()
+            hideOrder()
+            showConfirmation()
+            resetOrder()
+            setTimeout(() => {
+                hideConfirmation()
+            }, 3000);
+        }
     }
 })
 
@@ -143,6 +147,7 @@ document.addEventListener("keydown", function(e) {
     }
   })
 
-const showConfirmation = () => confirmationMessage.classList.remove("hidden")
 
 const hideConfirmation = () => confirmationMessage.classList.add("hidden")
+
+const showConfirmation = () => confirmationMessage.classList.remove("hidden")
