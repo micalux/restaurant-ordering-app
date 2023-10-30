@@ -3,7 +3,6 @@ import { v4 as uuidv4 } from 'https://jspm.dev/uuid'
 
 
 let orderList = []
-let totPrice = ''
 
 const orderSection = document.getElementById('order-section')
 const paymentForm = document.getElementById('payment-form')
@@ -61,15 +60,24 @@ document.addEventListener('click', function(e) {
 
 
 function handleAddProduct(productId) {
-    menuArray.forEach((product) => {
-        if(productId === product.id) {
-            orderList.push({
-                name: product.name,
-                price: product.price,
-                uuid: uuidv4()
-            })          
-        }
-    })
+    const existingProduct = orderList.find(item => item.id === productId)
+
+    if (existingProduct) {
+        existingProduct.amount += 1
+    } else {
+        menuArray.forEach((product) => {
+            if(productId === product.id) {
+                orderList.push({
+                    name: product.name,
+                    price: product.price,
+                    uuid: uuidv4(),
+                    amount: 1,
+                    id: productId
+                })   
+            }
+        })
+    }
+    console.log(orderList)
     renderOrder()
 }
 
@@ -85,8 +93,8 @@ renderOrder()
 
 
 function getTotalOrderPrice(){
-    totPrice = orderList.reduce(function(total, current){
-    return total + current.price
+    const totPrice = orderList.reduce(function(total, current){
+    return total + (current.price * current.amount)
 },0)
 const totalPrice = document.getElementById('total-price').innerText = '$' + totPrice
 }
@@ -110,13 +118,26 @@ const renderOrder = () => {
         let renderOrder = ''
     
         orderList.forEach((product) => {
-            renderOrder += `
+            if (product.amount > 1) {
+                console.log ('amount show')
+                renderOrder += `
+                <div class="recap-product">
+                    <h2>${product.name}</h2>
+                    <h2 class="prod-quantity">(x${product.amount})</h2>
+                    <p data-remove="${product.uuid}">remove</p>
+                    <h3 class="recap-price">$${product.price * product.amount}</h3>
+                </div>
+                `
+            } else {
+                console.log ('amount NOT show')
+                renderOrder += `
                 <div class="recap-product">
                     <h2>${product.name}</h2>
                     <p data-remove="${product.uuid}">remove</p>
                     <h3 class="recap-price">$${product.price}</h3>
                 </div>
                 `
+            }
         })
         return orderRecapEl.innerHTML = renderOrder
     } else {

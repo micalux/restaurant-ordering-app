@@ -118,6 +118,11 @@ h3 {
     margin: 0;
 }
 
+.prod-quantity {
+    font-size: 25px;
+    padding-left: 10px;
+}
+
 .recap-product p {
     font-size: smaller;
     margin: 0;
