@@ -129,7 +129,6 @@ const renderOrder = () => {
                 </div>
                 `
             } else {
-                console.log ('amount NOT show')
                 renderOrder += `
                 <div class="recap-product">
                     <h2>${product.name}</h2>
